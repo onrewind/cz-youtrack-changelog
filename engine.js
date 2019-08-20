@@ -86,7 +86,7 @@ module.exports = function (options) {
         }, {
           type: 'input',
           name: 'issues',
-          message: 'Add issue references (e.g. "ADMIN-123", "API-123".):\n',
+          message: 'Add issue references (e.g. "#ADMIN-123", "#API-123".):\n',
           when: function(answers) {
             return answers.isIssueAffected;
           }
@@ -122,6 +122,9 @@ module.exports = function (options) {
         breaking = wrap(breaking, wrapOptions);
 
         var issues = answers.issues ? wrap(answers.issues, wrapOptions) : '';
+        if ( issues.indexOf('#') !== 0 ) {
+            issues = '#' + issues;
+        }
 
         var time = answers.time ? 'work ' + answers.time : undefined;
         var footer = filter([issues, time]).join(' ');
