@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "commitizen": "4.0.3",
-    "semantic-release": "15.13.21"
+    "semantic-release": "17.2.3"
   },
   "config": {
     "commitizen": {
